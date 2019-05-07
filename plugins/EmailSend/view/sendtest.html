@@ -1,0 +1,29 @@
+
+{extend name="layout" /}
+
+{block name="content"}
+
+<form method="post" class="form-horizontal js-ajax-form" action="{$url}" novalidate="novalidate">
+	<div class="form-group">
+		<label for="input-email" class="col-sm-2 control-label"><span class="form-required">*</span>收件箱</label>
+		<div class="col-md-6 col-sm-10">
+			<input class="form-control" name="template_id" type="hidden" value="{$template_id}">
+			<input class="form-control" id="input-email" name="email" type="text">
+		</div>
+		</div>
+		{foreach name="template_keys" item="keys"}
+	         <div class="form-group">
+	             <label for="input-{$keys}" class="col-sm-2 control-label"><span class="form-required">*</span>参数{$keys}</label>
+	             <div class="col-md-6 col-sm-10">
+	                 <input class="form-control" id="input-{$keys}" name="{$keys}" type="text">
+	             </div>
+	         </div>
+         {/foreach}
+         <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-10">
+                 <button type="submit" class="btn btn-primary js-ajax-submit">发送</button>
+             </div>
+         </div>
+</form>
+
+{/block}
